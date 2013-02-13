@@ -1,0 +1,5 @@
+.powrc
+.ruby-version
+
+log/
+tmp/
