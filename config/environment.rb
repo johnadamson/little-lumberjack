@@ -4,5 +4,6 @@ RACK_ROOT = File.expand_path('..', File.dirname(__FILE__))
   $:.unshift File.join(RACK_ROOT, load_path)
 end
 
+require 'bundler/setup'
 require 'sinatra'
 require 'app'
