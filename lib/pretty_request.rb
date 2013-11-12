@@ -19,6 +19,7 @@ class PrettyRequest
   end
 
   def write_headers
+    output << "== HEADERS ==\n"
     keys_without_rack_and_sinatra.each do |key|
       output << "#{key}: #{request.env[key]}\n"
     end
@@ -31,6 +32,8 @@ class PrettyRequest
   end
 
   def write_body
+    output << "== BODY ==\n"
+    write_body_size
     write_form_data
     write_raw_body
   end
@@ -41,6 +44,10 @@ class PrettyRequest
       value = request.params[key]
       output << "  #{key}: #{value}\n"
     end
+  end
+
+  def write_body_size
+    output << "BODY LENGTH: #{request.body.length}\n"
   end
 
   def write_raw_body
