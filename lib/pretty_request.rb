@@ -47,7 +47,7 @@ class PrettyRequest
   end
 
   def write_body_size
-    output << "BODY LENGTH: #{request.body.length}\n"
+    output << "BODY LENGTH: #{request.body.to_s.length}\n"
   end
 
   def write_raw_body
